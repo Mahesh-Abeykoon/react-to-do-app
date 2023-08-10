@@ -1,11 +1,10 @@
-
-import React, { useState } from "react"
+import React, { useState } from "react";
+import TodoItems from './TodoItems';
 
 function App() {
 
   const [input, setInput] = useState("");
   const [item, addItem] = useState([]);
-
 
   function handleChange(event){
     const newValue = event.target.value;
@@ -17,6 +16,14 @@ function App() {
       return [...prevItem, input]
     })
     setInput("")
+  }
+
+  function handleDelete(id){
+    addItem((prev)=>{
+      return prev.filter((item, index)=>{
+        return index !== id;
+      });
+    });
   }
 
   return (
@@ -32,7 +39,14 @@ function App() {
       </div>
       <div>
         <ul>
-         {item.map(todoItems=> <li>{todoItems}</li>)}
+         {item.map((todoItem, index) => (
+         <TodoItems 
+          key={index} 
+          id={index}
+          text={todoItem}
+          onChecked={handleDelete}
+          />
+         ))}
         </ul>
       </div>
     </div>
