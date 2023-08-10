@@ -1,5 +1,6 @@
-import React, { useState } from "react"
-import TodoItems from './TodoItems'
+import React, { useState } from "react";
+import TodoItems from './TodoItems';
+
 function App() {
 
   const [input, setInput] = useState("");
@@ -15,6 +16,14 @@ function App() {
       return [...prevItem, input]
     })
     setInput("")
+  }
+
+  function handleDelete(id){
+    addItem((prev)=>{
+      return prev.filter((item, index)=>{
+        return index !== id;
+      });
+    });
   }
 
   return (
@@ -34,7 +43,9 @@ function App() {
          <TodoItems 
           key={index} 
           id={index}
-          text={todoItem}/>
+          text={todoItem}
+          onChecked={handleDelete}
+          />
          ))}
         </ul>
       </div>
