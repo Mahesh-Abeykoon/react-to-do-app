@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import TodoItems from './TodoItems';
+import TodoItems from "./TodoItems";
 import InputArea from "./InputArea";
 
 function App() {
 
   const [item, addItem] = useState([]);
-
- 
 
   function handleClick(input){
     addItem((prevItem)=>{
@@ -24,20 +22,18 @@ function App() {
 
   return (
     <div className="App">
-      <div className="App-header">
+      <header className="App-header">
         <h1>My To-do List</h1>
-      </div>
-      
-        <InputArea onAdd={handleClick} />
-   
-      <div>
+      </header>
+      <InputArea onAdd={handleClick} />
+      <div className="App-list">
         <ul>
          {item.map((todoItem, index) => (
          <TodoItems 
-          key={index} 
-          id={index}
-          text={todoItem}
-          onChecked={handleDelete}
+            key={index} 
+            id={index}
+            text={todoItem}
+            onChecked={handleDelete}
           />
          ))}
         </ul>
