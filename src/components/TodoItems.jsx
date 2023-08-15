@@ -1,13 +1,14 @@
 import React from "react";
 
- function TodoItems (props){
-    return (
-        <div onClick={()=>{
-            props.onChecked(props.id)}
-            }>
-            <li>{props.text}</li>
-        </div>
-    
-    )
+function TodoItems(props) {
+  return (
+    <div>
+      <li>
+        {props.text}
+        <button onClick={() => props.onChecked(props.id)}>Delete</button>
+      </li>
+    </div>
+  );
 }
+
 export default TodoItems;
