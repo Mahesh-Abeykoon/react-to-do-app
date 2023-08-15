@@ -1,23 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TodoItems from "./TodoItems";
 import InputArea from "./InputArea";
 
 function App() {
+//This will hold the list of tasks.
+  const [items, setItems] = useState([]); 
 
-  const [item, addItem] = useState([]);
-
-  function handleClick(input){
-    addItem((prevItem)=>{
-      return [...prevItem, input]
-    })
+//fetch the tasks from the server (when the app starts)
+  useEffect(() => {
+    fetchTasks();
+  }, []);
+// responsible for making a GET request to the /api/tasks endpoint on the backend. 
+//It retrieves the list of tasks and updates the items state with the fetched data.
+  function fetchTasks() {
+    fetch("/api/tasks")
+      .then((response) => response.json())
+      .then((data) => setItems(data))
+      .catch((error) => console.error("Error fetching your list of task:", error));
   }
 
-  function handleDelete(id){
-    addItem((prev)=>{
-      return prev.filter((item, index)=>{
-        return index !== id;
-      });
-    });
+  function handleClick(input) {
+    fetch("/api/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text: input }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setItems([...items, data]);
+      })
+      .catch((error) => console.error("Error adding task:", error));
+  }
+
+  function handleDelete(id) {
+    fetch(`/api/tasks/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        const updatedItems = items.filter((item) => item._id !== id);
+        setItems(updatedItems);
+      })
+      .catch((error) => console.error("Error deleting task:", error));
   }
 
   return (
@@ -28,14 +53,14 @@ function App() {
       <InputArea onAdd={handleClick} />
       <div className="App-list">
         <ul>
-         {item.map((todoItem, index) => (
-         <TodoItems 
-            key={index} 
-            id={index}
-            text={todoItem}
-            onChecked={handleDelete}
-          />
-         ))}
+          {items.map((todoItem) => (
+            <TodoItems
+              key={todoItem._id}
+              id={todoItem._id}
+              text={todoItem.text}
+              onChecked={handleDelete}
+            />
+          ))}
         </ul>
       </div>
     </div>
