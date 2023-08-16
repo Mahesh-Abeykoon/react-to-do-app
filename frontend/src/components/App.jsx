@@ -33,7 +33,21 @@ function App() {
       })
       .catch((error) => console.error("Error adding task:", error));
   }
-
+  function handleEdit(id, newText) {
+    fetch(`/api/tasks/${id}`, {
+      method: "PUT",
+    })
+      .then((response) => {
+        const updatedItems = items.map((item) => {
+          if (item._id === id) {
+            return { ...item, text: newText };
+          }
+          return item;
+        });
+        setItems(updatedItems);
+      })
+      .catch((error) => console.error("Error editing task:", error));
+  }
   function handleDelete(id) {
     fetch(`/api/tasks/${id}`, {
       method: "DELETE",
@@ -59,6 +73,8 @@ function App() {
               id={todoItem._id}
               text={todoItem.text}
               onChecked={handleDelete}
+              onEdit={handleEdit}
+
             />
           ))}
         </ul>

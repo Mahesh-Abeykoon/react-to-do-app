@@ -10,9 +10,8 @@ body {
   
   .App {
     height: auto;
-    min-height: 500px;
-    max-width: 500px;
-    min-width: 250px;
+    max-width: 400px;
+    min-width: 400px;
     background: #e8f5ff;
     background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
     background-size: 20px 20px;
@@ -38,16 +37,17 @@ body {
   .form input {
     box-sizing: border-box;
     background-color: transparent;
-    padding: 0.7rem;
+    padding: 0.5rem;
     border-bottom-right-radius: 15px 3px;
     border-bottom-left-radius: 3px 15px;
     border: solid 3px transparent;
     border-bottom: dashed 3px #fdcb6e;
     font-family: "Architects Daughter", cursive;
     font-size: 1rem;
-    color: hsla(260, 2%, 25%, 0.7);
+    color: hsla(260, 14%, 22%, 0.7);
     width: 70%;
     margin-bottom: 20px;
+    margin-left: 40px;
   }
   
   button {
@@ -58,6 +58,7 @@ body {
     padding-bottom: 3px;
     border-radius: 5px;
     background-color: #c8c7df;
+    cursor: pointer;
   }
   button span {
     background: #f7f6d1;
@@ -69,7 +70,61 @@ body {
   
   li {
     text-align: left;
-    position: relative;
     padding: 0.5rem;
+    border: 1px solid #ccc;
+    margin-right: 12px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+  }
+
+  .delete-button {
+    background-color: #e75858;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  .edit{
+    background: #f7f6d1;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 2px solid hsl(210, 92%, 48%);
+    cursor: pointer;
+  }
+  .save-button{
+    background: #55f1a3;
+    display: block;
+    padding: 0.2rem 0.3rem;
+    margin-left: 5px;
+  }
+  .cancel-button{
+    background: #90e7bc;
+    padding: 0.2rem 0.3rem;
+
+  }
+ 
+  .edit-mode {
+    display: flex;
+    align-items: center;
+  }
+
+  .edit-text {
+    background: #b3ffecf5;
+    color: #060607;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 2px solid hsl(0, 44%, 83%);
+    cursor: text;
+    font-family: "Architects Daughter", cursive; 
+  }
+  
+  .edit-buttons {
+    display: flex;
+    gap: 5px;
+    margin-left: auto; 
   }
   
