@@ -20,6 +20,17 @@ exports.createTask = async (req, res, next) => {
   }
 };
 
+exports.editTask = async(req, res) =>{
+  const id = req.params.id;
+
+  try {
+    const updatedTask = await Task.findByIdAndUpdate(id, { text: req.body.text }, { new: true });
+    res.json(updatedTask);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
 exports.deleteTask = async (req, res, next) => {
   const taskId = req.params.id;
 
