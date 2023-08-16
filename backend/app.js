@@ -5,7 +5,7 @@ const cors = require('cors');
 const tasksRoutes = require('./routes/taskRoutes');
 
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(cors());
