@@ -4,8 +4,8 @@ function TodoItems(props) {
   return (
     <div>
       <li>
-        {props.text}
-        <button onClick={() => props.onChecked(props.id)}>Delete</button>
+        <span className="task-text">{props.text}</span>
+        <button className="delete-button"  onClick={() => props.onChecked(props.id)}>X</button>
       </li>
     </div>
   );

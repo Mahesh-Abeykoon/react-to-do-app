@@ -10,9 +10,8 @@ body {
   
   .App {
     height: auto;
-    min-height: 500px;
-    max-width: 500px;
-    min-width: 250px;
+    max-width: 400px;
+    min-width: 400px;
     background: #e8f5ff;
     background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
     background-size: 20px 20px;
@@ -38,16 +37,17 @@ body {
   .form input {
     box-sizing: border-box;
     background-color: transparent;
-    padding: 0.7rem;
+    padding: 0.5rem;
     border-bottom-right-radius: 15px 3px;
     border-bottom-left-radius: 3px 15px;
     border: solid 3px transparent;
     border-bottom: dashed 3px #fdcb6e;
     font-family: "Architects Daughter", cursive;
     font-size: 1rem;
-    color: hsla(260, 2%, 25%, 0.7);
+    color: hsla(260, 14%, 22%, 0.7);
     width: 70%;
     margin-bottom: 20px;
+    margin-left: 40px;
   }
   
   button {
@@ -69,7 +69,23 @@ body {
   
   li {
     text-align: left;
-    position: relative;
     padding: 0.5rem;
+    border: 1px solid #ccc;
+    margin-right: 12px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+  }
+  
+  .task-text {
+    margin-right: 6px;
+  }
+
+  .delete-button {
+    background-color: #e75858;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
   }
   
