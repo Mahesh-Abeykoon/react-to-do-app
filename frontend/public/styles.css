@@ -77,15 +77,47 @@ body {
     align-items: center;
   }
   
-  .task-text {
-    margin-right: 6px;
-  }
-
   .delete-button {
     background-color: #e75858;
     color: #fff;
     border: none;
     padding: 4px 8px;
     cursor: pointer;
+  }
+  .edit{
+    background: #f7f6d1;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 2px solid hsl(210, 92%, 48%);
+  }
+  .save-button{
+    background: #55f1a3;
+    display: block;
+    padding: 0.2rem 0.3rem;
+    margin-left: 5px;
+  }
+  .cancel-button{
+    background: #90e7bc;
+    padding: 0.2rem 0.3rem;
+
+  }
+  .edit-text {
+    background: #f7f6d1;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 2px solid hsl(198, 1%, 29%);
+  }
+  
+  .edit-mode {
+    display: flex;
+    align-items: center;
+  }
+  
+  .edit-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto; 
   }
   
