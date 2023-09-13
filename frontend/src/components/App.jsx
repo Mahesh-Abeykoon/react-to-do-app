@@ -36,6 +36,10 @@ function App() {
   function handleEdit(id, newText) {
     fetch(`/api/tasks/${id}`, {
       method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text: newText }), // Include the edited text in the request body
     })
       .then((response) => {
         const updatedItems = items.map((item) => {
