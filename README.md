@@ -1,7 +1,7 @@
 # react-to-do-app
 React Todo App: A simple React application that allows users to manage and edit their to-do list items. The app includes features for editing tasks, marking tasks as complete, and deleting tasks. Built using React's state management and functional components.
 
-[![Site preview](to-do-app.png)]
+![Site preview](to-do-app.png)
 
 ## Table of Contents
 
